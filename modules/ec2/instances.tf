@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
   instance_type = "${var.instance_type}"
   subnet_id     = "${var.subnet_id}"
   tags = {
-    Name = "Hello"
+    Name = "instance_create"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_alb" "ALB" {
 
 #creation of the target group
 
-resource "aws_alb_target_group" "aws_targetgroup" {
+resource "aws_alb_target_group" "aws_target_group" {
   vpc_id = "${var.vpc_id}"   
   port = "${var.port}"
   protocol = "${var.protocol}"
@@ -57,8 +57,12 @@ resource "aws_alb_target_group" "aws_targetgroup" {
 
 #Assignement of the EC2 to the target group 
 
-resource "aws_alb_target_group_attachment"  "aws_targetgroup" {
+resource "aws_alb_target_group_attachment"  "aws_target_group" {
+  
+  tags = {
+    Name = "aws_target_group"
 
+}
 
 }
 
