@@ -58,7 +58,10 @@ resource "aws_alb_target_group" "aws_target_group" {
 #Assignement of the EC2 to the target group 
 
 resource "aws_alb_target_group_attachment"  "aws_target_group" {
-  
+  target_group_arn = ""
+  target_id = ""
+  port = "" 
+
   tags = {
     Name = "aws_target_group"
 
